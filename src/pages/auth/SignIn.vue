@@ -79,10 +79,9 @@
                     </div>
                     <!-- Button -->
                     <div>
-                      <button type="submit"
-                        class="flex items-center justify-center w-full px-4 py-3 text-sm font-medium text-white transition rounded-lg bg-brand-500 shadow-theme-xs hover:bg-brand-600">
+                      <Button type="submit" variant="primary" size="sm" className="w-full">
                         Entrar
-                      </button>
+                      </Button>
                     </div>
                   </div>
                 </form>
@@ -119,6 +118,7 @@
 import { ref } from 'vue'
 import CommonGridShape from '../../components/common/CommonGridShape.vue'
 import FullScreenLayout from '../../components/layout/FullScreenLayout.vue'
+import Button from '@/components/ui/Button.vue'
 const email = ref('')
 const password = ref('')
 const showPassword = ref(false)
