@@ -62,6 +62,10 @@ const handleSubmit = async () => {
       password: password.value,
     })
     console.log('Login realizado com sucesso', response)
+
+    localStorage.setItem('access_token', response.access_token)
+    localStorage.setItem('refresh_token', response.refresh_token)
+
     router.push({
       name: 'Home',
     })
