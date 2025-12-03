@@ -46,10 +46,10 @@ axios.interceptors.response.use(
       }
 
       try {
-        const response = await refreshAuthToken({ refresh_token: refreshToken })
-        const newAccessToken = response.access_token
+        const response = await refreshAuthToken({ refresh: refreshToken })
+        const newAccessToken = response.access
         localStorage.setItem('access_token', newAccessToken)
-        localStorage.setItem('refresh_token', response.refresh_token)
+        localStorage.setItem('refresh_token', response.refresh)
 
         processQueue(null, newAccessToken)
         originalRequest.headers['Authorization'] = `Bearer ${newAccessToken}`
