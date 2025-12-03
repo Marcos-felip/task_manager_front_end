@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useSidebarProvider } from './composables/useSidebar'
+import { useSidebarProvider } from './utils/useSidebar'
 
 useSidebarProvider()
 </script>

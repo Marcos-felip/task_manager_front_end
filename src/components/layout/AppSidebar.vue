@@ -74,7 +74,7 @@ import {
   GridIcon,
   UserCircleIcon,
 } from "../../icons";
-import { useSidebar } from "../../composables/useSidebar";
+import { useSidebar } from "../../utils/useSidebar";
 
 const route = useRoute();
 

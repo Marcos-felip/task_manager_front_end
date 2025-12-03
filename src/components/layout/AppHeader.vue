@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { useSidebar } from '../../composables/useSidebar'
+import { useSidebar } from '../../utils/useSidebar'
 import ThemeToggler from '../common/ThemeToggler.vue'
 import HeaderLogo from './header/HeaderLogo.vue'
 import UserMenu from './header/UserMenu.vue'
