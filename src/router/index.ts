@@ -10,7 +10,7 @@ const Home = () => import('../pages/home/Home.vue')
 const routes = [
   {
     path: '/',
-    redirect: '/signin',
+    redirect: '/home',
   },
   {
     path: '/signin',

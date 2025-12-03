@@ -1,7 +1,6 @@
 <template>
     <div class="min-h-screen xl:flex">
         <app-sidebar />
-        <Backdrop />
         <div class="flex-1 transition-all duration-300 ease-in-out"
             :class="[isExpanded || isHovered ? 'lg:ml-[290px]' : 'lg:ml-[90px]']">
             <app-header />
@@ -16,6 +15,5 @@
 import AppSidebar from '../../components/layout/AppSidebar.vue'
 import AppHeader from '../../components/layout/AppHeader.vue'
 import { useSidebar } from '../../composables/useSidebar'
-import Backdrop from '../../components/layout/Backdrop.vue'
 const { isExpanded, isHovered } = useSidebar()
 </script>
