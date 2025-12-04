@@ -8,6 +8,7 @@ const ResetPassword = () => import('../pages/auth/ResetPassword.vue')
 const Home = () => import('../pages/home/Home.vue')
 const ListUser = () => import('../pages/accounts/ListUser.vue')
 const CreateUser = () => import('../pages/accounts/CreateUser.vue')
+const UpdateUser = () => import('../pages/accounts/UpdateUser.vue')
 
 const routes = [
   {
@@ -50,6 +51,12 @@ const routes = [
     path: '/accounts/create',
     name: 'CreateUser',
     component: CreateUser,
+    meta: { requiresAuth: true },
+  },
+  {
+    path: '/accounts/update/:id',
+    name: 'UpdateUser',
+    component: UpdateUser,
     meta: { requiresAuth: true },
   },
 ]

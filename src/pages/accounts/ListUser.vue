@@ -9,7 +9,6 @@
     </div>
   </AdminLayout>
 </template>
-
 <script setup lang="ts">
 import { ref } from "vue";
 import Breadcrumb from "../../components/common/Breadcrumb.vue";

@@ -7,18 +7,7 @@ import { ref, onMounted } from 'vue'
 import Table from '../../components/common/Table.vue'
 import { getUsers } from '../../services/accounts/users'
 import type { UserResponse } from '../../types/accounts/users'
-
-interface TableHeader {
-  name: string
-  role: string
-  status: string
-}
-
-interface TableBody {
-  name: string
-  role: string
-  status: string
-}
+import type { TableHeader, TableRowData } from '../../types/components/common/table'
 
 const headers = ref<TableHeader[]>([
   {
@@ -28,17 +17,33 @@ const headers = ref<TableHeader[]>([
   },
 ])
 
-const body = ref<TableBody[]>([])
+const body = ref<TableRowData[]>([])
 
 const loadUsers = async () => {
   try {
     const response = await getUsers()
     console.log('Usuários carregados:', response)
-    body.value = response.map((user: UserResponse) => ({
-      name: user.first_name + ' ' + user.last_name || user.email,
-      role: user.role,
-      status: user.status ? 'Ativo' : 'Inativo'
-    }))
+
+    body.value = response.map((user: UserResponse) => {
+
+      return {
+        name: user.first_name + ' ' + user.last_name || user.email,
+        role: user.role,
+        status: user.status ? 'Ativo' : 'Inativo',
+        actions: [
+          {
+            label: 'Editar',
+            to: `/accounts/update/${user.id}`,
+          },
+          {
+            label: 'Excluir',
+            onClick: () => {
+              console.log(`Excluir usuário ${user.id}`)
+            }
+          }
+        ],
+      }
+    })
   } catch (error) {
     console.error('Erro ao carregar usuários:', error)
   }

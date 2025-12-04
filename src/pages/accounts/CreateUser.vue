@@ -45,7 +45,7 @@ import { createUser } from '../../services/accounts/users'
 
 const router = useRouter()
 
-const currentPageTitle = ref('Criar Usuário')
+const currentPageTitle = ref('Usuários do Sistema')
 
 const fullName = ref('')
 const email = ref('')

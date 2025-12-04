@@ -63,12 +63,21 @@
               </span>
             </td>
             <td class="px-5 py-4 sm:px-6">
-              <Button variant="outline" size="sm">
-                Editar
-              </Button>
-              <Button variant="outline" size="sm" class="ml-2">
-                Excluir
-              </Button>
+              <div class="flex items-center gap-2">
+                <template v-for="(action, idx) in body.actions" :key="idx">
+                  <!-- Router Link Button -->
+                  <router-link v-if="action.to" :to="action.to" class="inline-block">
+                    <Button variant="outline" size="sm">
+                      {{ action.label }}
+                    </Button>
+                  </router-link>
+
+                  <!-- Function Button -->
+                  <Button v-else-if="action.onClick" variant="outline" size="sm" :onClick="action.onClick">
+                    {{ action.label }}
+                  </Button>
+                </template>
+              </div>
             </td>
           </tr>
         </tbody>
@@ -79,18 +88,11 @@
 
 <script setup lang="ts">
 import Button from '../ui/Button.vue'
+import type { TableHeader, TableRowData } from '../../types/components/common/table'
 
 interface Props {
-  Headers: Array<{
-    name: string
-    role: string
-    status: string
-  }>
-  Body: Array<{
-    name: string
-    role: string
-    status: string
-  }>
+  Headers: TableHeader[]
+  Body: TableRowData[]
 }
 
 defineProps<Props>()
